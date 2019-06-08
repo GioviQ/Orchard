@@ -1,0 +1,18 @@
+﻿@model Q.SeoTools.ViewModels.RobotsFileViewModel
+@{
+    Layout.Title = T("Manage Ads.txt File").Text;
+}
+
+@Html.ValidationSummary()
+@using (Html.BeginFormAntiForgeryPost())
+{
+    <fieldset>
+        <div>
+            <label for="@Html.FieldIdFor(m => m.Text)">@T("Ads.txt Content")</label>
+            @Html.TextAreaFor(m => m.Text, new { @class = "textMedium", rows = "16" })
+            @Html.ValidationMessage("Text", "*")
+            <span class="hint">@T("The default text provided is for Google AdSense")</span>
+        </div>
+    </fieldset>
+    <button class="primaryAction" type="submit">@T("Save Ads.txt")</button>
+}

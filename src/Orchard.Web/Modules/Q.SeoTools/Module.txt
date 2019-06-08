@@ -1,0 +1,9 @@
+Name: Q SEO Tools
+AntiForgery: enabled
+Author: Giovanni Quarella
+Website: http://www.quarella.net
+Version: 1.0
+OrchardVersion: 1.10.1
+Description: Provides essential SEO tools. Enable page title tag override for your contents. Add redirects. Provides a way to define and modify the robots.txt file at the site root through configuration. robots.txt is served through the pipeline dynamically rather than as a static txt file.
+Category: SEO
+Priority: 5
