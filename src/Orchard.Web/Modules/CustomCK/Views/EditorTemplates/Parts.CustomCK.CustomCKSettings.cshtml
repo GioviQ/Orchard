@@ -1,0 +1,36 @@
+@model CustomCK.Models.CustomCKSettingsPartRecord
+@using Orchard.ContentManagement;
+
+@{
+   Layout.Title = T("CustomCK Settings").ToString();
+   Style.Require("CodeMirror");
+}
+
+@using (Script.Foot()) {
+    @*Script.Require("CodeMirror");
+   
+    <script type="text/javascript">
+    //<![CDATA[
+        var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("CustomCKSettings_ConfigString"), 
+            {
+                lineNumbers: true,
+                mode: { name: "javascript", json: true }
+            });
+    //]]>
+    </script>*@
+}
+
+<fieldset>
+    <legend>@T("CKEditor Configuration String")</legend>
+
+    <div>
+        @Html.TextAreaFor(m => m.ConfigString, new { cols = 40, rows = 30 })
+    </div>
+    <p>@T("When the CKEditor does not load properly: Please check the syntax of this configuration (JavaScript syntax).")</p>
+    <p>@T("Options can be found here:")</p>
+    <p><a href="http://docs.ckeditor.com/#!/api/CKEDITOR.config" target="_blank">http://docs.ckeditor.com/#!/api/CKEDITOR.config</a></p>
+    <p class ="hint">The Configuration string will be injected into the curly brackets of the second parameter: CKEDITOR.replace("Body_Text", {CONFIGURATN_STRING});</p>
+    <p>Keyboard Shortcuts: <a href="http://docs.ckeditor.com/#!/guide/dev_shortcuts" target="_blank">http://docs.ckeditor.com/#!/guide/dev_shortcuts</a></p>
+</fieldset>
+
+
